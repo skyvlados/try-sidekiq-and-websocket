@@ -1,0 +1,21 @@
+<%= form_with model: @article do |form| %>
+  <div>
+    <%= form.label :title %><br>
+    <%= form.text_field :title %>
+    <% if @title_errors&.any? %>
+      <div class="error">
+        <%= @title_errors.join(', ') %>
+      </div>
+    <% end %>
+  </div>
+
+  <div>
+    <%= form.label :body %><br>
+    <%= form.text_area :body %><br>
+  </div>
+
+  <div>
+    <%= form.submit %>
+    <%= link_to "Back to list", articles_path %>
+  </div>
+<% end %>
